@@ -1,0 +1,58 @@
+<template>
+    <el-row>
+        <el-col :span="12">
+            <el-card class="box-card" header="Estado actual de la cadena">
+                <div v-for="o in 4" :key="o" class="text item">
+                    {{'List item ' + o }}
+                </div>
+            </el-card>
+        </el-col>
+        <el-col :span="12">   
+            <el-card class="box-card" header="Agregar transacción">
+                <FormAddTransaction></FormAddTransaction>
+            </el-card>
+        </el-col>
+    </el-row>
+        
+
+     
+</template>
+
+
+<style>
+  .text {
+    font-size: 14px;
+  }
+
+  .item {
+    padding: 18px 0;
+  }
+
+  .box-card {
+    width: 480px;
+  }
+</style>
+
+
+<script>
+
+    import FormAddTransaction from './FormAddTransaction'
+
+    export default {
+        name: "App",
+        components: {
+            FormAddTransaction
+        },
+        created() {
+            this.interval = setInterval(() => this.getBitcoins(), 1000);
+        },
+        //En el mounted de la aplicacion cargo el usuario del login
+        mounted() {
+            console.log("monte")
+            //TODO: Por ahora no hago nada aca
+            //Apenas se monta la aplicacion, trato de traer la data del usuario
+            //store.dispatch('getUser')
+        }
+
+}
+</script>
