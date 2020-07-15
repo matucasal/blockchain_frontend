@@ -4,7 +4,7 @@
         title="Transaccion agregada"
         type="success"
         :closable="true"
-        v-model="alert_transaction_add"
+        v-show="alert_transaction_add"
         >
         </el-alert>
         
@@ -31,6 +31,14 @@ export default {
             },
             alert_transaction_add: false
         }
+    },
+    watch: {
+        alert_transaction_add(){
+            setTimeout(() => {
+            this.alert_transaction_add = false
+        }, 3000)
+        }
+        
     },
     methods: {
         onSubmit() {
