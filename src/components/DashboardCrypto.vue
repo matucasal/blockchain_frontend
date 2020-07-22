@@ -5,6 +5,7 @@
                 <div v-for="block in blockchain" :key="block" class="text item">
                     - Data: {{ block.data }}
                     - Hash: {{ block.hash }}  
+                    - LastHash: {{ block.lastHash }}  
                 </div>
             </el-card>
         </el-col>
